@@ -1,0 +1,235 @@
+# ----------------------------------------------------------------------------------------------------
+# Automatic Identification System (AIS) Metadata
+#
+# Simula Research Laboratory will not accept liability for any damage, loss whether direct,
+# indirect or consequential resulting from the use of the AIS metadata schema and resulting products.
+#
+#
+# (C) 2022 Simula Research Laboratory, Oslo, Norway
+# -----------------------------------------------------------
+
+group:
+  group_name: "data"
+  title: "AIS processed dataset"
+  comment: "This dataset is provided as is."
+  license: "Private data that cannot be re-used"
+  history: ""
+  institution: "Simula Research Laboratory"
+  references: "https://w3id.org/ro-id/d5d3a3ed-7bc1-40b9-b2cd-0496f599d0fe"
+  source: "Statsat AS"
+  variables:
+    msg_type: 
+      long_name: "Message Type"
+      missing_value: 1
+      valid_range: [1, 27]
+      type: "int"
+    mmsi:
+      long_name: "MMSI"
+      missing_value: -1
+      type: "int64"
+    heading:
+      long_name: "True Heading (HDG)"
+      units: "degrees"
+      missing_value: 511
+      valid_range: [0,359]
+      type: "float32"
+    status:
+      long_name: "Navigation Status"
+      type: "int"
+      valid_range: [0,14]
+      flag_values: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+      flag_meanings:
+        - "Under way using engine"
+        - "At anchor"
+        - "Not under command"
+        - "Restricted manoeuverability"
+        - "Constrained by her draught"
+        - "Moored"
+        - "Aground"
+        - "Engaged in Fishing"
+        - "Under way sailing"
+        - "Reserved for future amendment of Navigational Status for HSC"
+        - "Reserved for future amendment of Navigational Status for WIG"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "AIS-SART is active"
+        - "Not defined (default)"
+      missing_value: 15
+    lon:
+      long_name: "Longitude"
+      units: "degrees_east"
+      valid_range: [-180,180]
+      missing_value: 181
+      type: "float32"
+    lat:
+      long_name: "Latitude"
+      units: "degrees_north"
+      valid_range: [-90,90]
+      missing_value: 91
+      type: "float32"
+    speed:
+      long_name: "Speed over ground"
+      units: "0.1-knot"
+      valid_range: [0,1022]
+      missing_value: 102.3
+      scaling_factor: 10
+      type: "int"
+    course:
+      long_name: "Course over ground"
+      units: "Course over ground in 1/10 degrees"
+      valid_range: [0, 3599]
+      missing_value: 360.0
+      scaling_factor: 10
+      type: "int"
+    gnss:
+      long_name: "GNSS Position status"
+      valid_range: [0,1]
+      flag_values: [0,1]
+      flag_meanings:
+        - current GNSS position
+        - not GNSS position (default)
+      missing_value: 1
+      type: "int"
+    accuracy:
+      long_name: "Position Accuracy"
+      valid_range: [0,1]
+      flag_values: [0,1]
+      flag_meanings:
+        - "Unaugmented GNSS fix with accuracy > 10m"
+        - "DGPS-quality fix with an accuracy of < 10ms" 
+      missing_value: 0
+      type: "int"
+    receiver_timestamp:
+      long_name: "Timestamp"
+      units: "seconds"
+      missing_value: 61
+      type: "float64"
+      tag_block: 1
+    source_station:
+      long_name: "station"
+      valid_range: [0,5]
+      tag_block: 1
+      flag_values: [-1,0,1,2,3,4,5]
+      flag_meanings: 
+        - "Ground or undefined"
+        - "Unknown station"
+        - "AISSat_1"
+        - "AISSat_2"
+        - "NorSat_1"
+        - "NorSat_2"
+        - "NorSat_3"
+      missing_value: -1
+      type: "int"
+    destination_station:
+      long_name: "Destination station"
+      tag_block: 1
+      missing_value: "Unknown"
+      type: "str"
+    shiptype:
+      long_name: "Ship Type"
+      type: "int"
+      missing_value: 0
+      valid_range: [1,99]
+      flag_values: [0, 99]
+      flag_meanings:
+        - "Not available (default)"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Reserved for future use"
+        - "Wing in ground (WIG), all ships of this type"
+        - "Wing in ground (WIG), Hazardous category A"
+        - "Wing in ground (WIG), Hazardous category B"
+        - "Wing in ground (WIG), Hazardous category C"
+        - "Wing in ground (WIG), Hazardous category D"
+        - "Wing in ground (WIG), Reserved for future use"
+        - "Wing in ground (WIG), Reserved for future use"
+        - "Wing in ground (WIG), Reserved for future use"
+        - "Wing in ground (WIG), Reserved for future use"
+        - "Wing in ground (WIG), Reserved for future use"
+        - "Fishing"
+        - "Towing"
+        - "Towing: length exceeds 200m or breadth exceeds 25m"
+        - "Dredging or underwater ops"
+        - "Diving ops"
+        - "Military ops"
+        - "Sailing"
+        - "Pleasure Craft"
+        - "Reserved"
+        - "Reserved"
+        - "High speed craft (HSC), all ships of this type"
+        - "High speed craft (HSC), Hazardous category A"
+        - "High speed craft (HSC), Hazardous category B"
+        - "High speed craft (HSC), Hazardous category C"
+        - "High speed craft (HSC), Hazardous category D"
+        - "High speed craft (HSC), Reserved for future use"
+        - "High speed craft (HSC), Reserved for future use"
+        - "High speed craft (HSC), Reserved for future use"
+        - "High speed craft (HSC), Reserved for future use"
+        - "High speed craft (HSC), No additional information"
+        - "Pilot Vessel"
+        - "Search and Rescue vessel"
+        - "Tug"
+        - "Port Tender"
+        - "Anti-pollution equipment"
+        - "Law Enforcement"
+        - "Spare - Local Vessel"
+        - "Spare - Local Vessel"
+        - "Medical Transport"
+        - "Noncombatant ship according to RR Resolution No. 18"
+        - "Passenger, all ships of this type"
+        - "Passenger, Hazardous category A"
+        - "Passenger, Hazardous category B"
+        - "Passenger, Hazardous category C"
+        - "Passenger, Hazardous category D"
+        - "Passenger, Reserved for future use"
+        - "Passenger, Reserved for future use"
+        - "Passenger, Reserved for future use"
+        - "Passenger, Reserved for future use"
+        - Passenger, No additional information"
+        - "Cargo, all ships of this type"
+        - "Cargo, Hazardous category A"
+        - "Cargo, Hazardous category B"
+        - "Cargo, Hazardous category C"
+        - "Cargo, Hazardous category D"
+        - "Cargo, Reserved for future use"
+        - "Cargo, Reserved for future use"
+        - "Cargo, Reserved for future use"
+        - "Cargo, Reserved for future use"
+        - "Cargo, No additional information"
+        - "Tanker, all ships of this type"
+        - "Tanker, Hazardous category A"
+        - "Tanker, Hazardous category B"
+        - "Tanker, Hazardous category C"
+        - "Tanker, Hazardous category D"
+        - "Tanker, Reserved for future use"
+        - "Tanker, Reserved for future use"
+        - "Tanker, Reserved for future use"
+        - "Tanker, Reserved for future use"
+        - "Tanker, No additional information"
+        - "Other Type, all ships of this type"
+        - "Other Type, Hazardous category A"
+        - "Other Type, Hazardous category B"
+        - "Other Type, Hazardous category C"
+        - "Other Type, Hazardous category D"
+        - "Other Type, Reserved for future use"
+        - "Other Type, Reserved for future use"
+        - "Other Type, Reserved for future use"
+        - "Other Type, Reserved for future use"
+        - "Other Type, no additional information"
