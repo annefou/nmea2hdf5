@@ -5,3 +5,7 @@
 
 
 Convert AIS NMEA messages to HDF5
+
+
+
+`requirements.txt` was created from `requirements.in` with the following command: `pip-compile -o requirements.txt requirements.in`. Requirements are kept in `binder` folder.
