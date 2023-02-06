@@ -20,8 +20,12 @@ astropy==5.2.1
     # via vaex-astro
 asttokens==2.2.1
     # via stack-data
+attrs==22.2.0
+    # via pyais
 backcall==0.2.0
     # via ipython
+bitarray==2.7.0
+    # via pyais
 blake3==0.3.3
     # via vaex-core
 bqplot==0.12.36
@@ -220,6 +224,8 @@ ptyprocess==0.7.0
     # via pexpect
 pure-eval==0.2.2
     # via stack-data
+pyais==2.5.0
+    # via -r requirements.in
 pyarrow==11.0.0
     # via vaex-core
 pydantic==1.10.4
